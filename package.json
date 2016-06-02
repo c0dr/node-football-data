@@ -1,0 +1,20 @@
+{
+  "name": "node-football-data",
+  "version": "0.1.0",
+  "description": "This is a simple node wrapper for football-data.org",
+  "main": "lib.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "football",
+    "soccer",
+    "api"
+  ],
+  "author": "c0dr",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.72.0",
+    "request-promise": "^3.0.0"
+  },
+}
