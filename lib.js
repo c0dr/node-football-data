@@ -33,6 +33,12 @@ FootballData.prototype.getLeagugeFixtures = function (seasonId) {
   return rp(this.getRequest(`/v1/soccerseasons/${seasonId}/fixtures`));
 }
 
+FootballData.prototype.getLeagugeFixturesInTimeFrame = function (seasonId, timeFrame) {
+  var config = this.getRequest(`/v1/soccerseasons/${seasonId}/fixtures`);
+  config.qs = {timeFrame: timeFrame}
+  return rp(config);
+}
+
 FootballData.prototype.getFixtures = function () {
   return rp(this.getRequest(`/v1/fixtures`));
 }
