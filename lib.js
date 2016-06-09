@@ -8,7 +8,7 @@ function FootballData(apiToken) {
 }
 
 FootballData.prototype.getRequest = function (path) {
-  return = {
+  return {
     uri: API_URL + path,
     headers: {
         'X-Auth-Token': this.apiToken
@@ -30,7 +30,7 @@ FootballData.prototype.getLeagueTable = function (seasonId) {
 }
 
 FootballData.prototype.getLeagugeFixtures = function (seasonId) {
-  return rp(this.this.getRequest(`/v1/soccerseasons/${seasonId}/fixtures`));
+  return rp(this.getRequest(`/v1/soccerseasons/${seasonId}/fixtures`));
 }
 
 FootballData.prototype.getFixtures = function () {
