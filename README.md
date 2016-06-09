@@ -14,7 +14,7 @@ npm install node-football-data --s
 
 ## Example usage
 
-````
+````javascript
 //Initialize
 var FootballData = require('node-football-data');
 var fd = FootballData('APIKEY');
