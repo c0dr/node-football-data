@@ -17,24 +17,28 @@ FootballData.prototype.getRequest = function (path) {
   };
 }
 
-FootballData.prototype.getSeasons = function () {
-  return rp(this.getRequest('/v1/soccerseasons/'));
+FootballData.prototype.getCompetitions = function (season) {
+  var config = this.getRequest('/v1/competitions/');
+  if (season) {
+    config.qs = {season: season};
+  }
+  return rp(config);
 }
 
-FootballData.prototype.getTeamsInSeason = function (seasonId) {
-  return rp(this.getRequest(`/v1/soccerseasons/${seasonId}/teams`));
+FootballData.prototype.getTeamsInCompetition = function (competitionId) {
+  return rp(this.getRequest(`/v1/competitions/${competitionId}/teams`));
 }
 
-FootballData.prototype.getLeagueTable = function (seasonId) {
-  return rp(this.getRequest(`/v1/soccerseasons/${seasonId}/leagueTable`));
+FootballData.prototype.getLeagueTable = function (competitionId) {
+  return rp(this.getRequest(`/v1/competitions/${competitionId}/leagueTable`));
 }
 
-FootballData.prototype.getLeagugeFixtures = function (seasonId) {
-  return rp(this.getRequest(`/v1/soccerseasons/${seasonId}/fixtures`));
+FootballData.prototype.getLeagueFixtures = function (competitionId) {
+  return rp(this.getRequest(`/v1/competitions/${competitionId}/fixtures`));
 }
 
-FootballData.prototype.getLeagugeFixturesInTimeFrame = function (seasonId, timeFrame) {
-  var config = this.getRequest(`/v1/soccerseasons/${seasonId}/fixtures`);
+FootballData.prototype.getLeagueFixturesInTimeFrame = function (competitionId, timeFrame) {
+  var config = this.getRequest(`/v1/competitions/${competitionId}/fixtures`);
   config.qs = {timeFrame: timeFrame}
   return rp(config);
 }
@@ -44,20 +48,20 @@ FootballData.prototype.getFixtures = function () {
 }
 
 FootballData.prototype.getFixture = function (fixtureId) {
-  return rp(this.getRequest(`/v1/fixtures/${seasonId}`));
+  return rp(this.getRequest(`/v1/fixtures/${fixtureId}`));
 }
 
 FootballData.prototype.getTeam = function (teamId) {
-  return rp(this.getRequest(`/v1/teams/${seasonId}`));
+  return rp(this.getRequest(`/v1/teams/${teamId}`));
 }
 
 FootballData.prototype.getTeamPlayers = function (teamId) {
-  return rp(this.getRequest(`/v1/teams/${seasonId}/players`));
+  return rp(this.getRequest(`/v1/teams/${teamId}/players`));
 }
 
 
 FootballData.prototype.getTeamFixtures = function (teamId) {
-  return rp(this.getRequest(`/v1/teams/${seasonId}/fixtures`));
+  return rp(this.getRequest(`/v1/teams/${teamId}/fixtures`));
 }
 
 module.exports = FootballData;
