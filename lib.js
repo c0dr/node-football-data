@@ -1,5 +1,5 @@
 var rp = require('request-promise');
-var API_URL = "http://api.football-data.org";
+var API_URL = "https://api.football-data.org";
 
 function FootballData(apiToken) {
   if(!(this instanceof FootballData))
@@ -15,6 +15,10 @@ FootballData.prototype.getRequest = function (path) {
     },
     json: true
   };
+}
+
+FootballData.prototype.getCompetition = function (competitionId) {
+  return rp(this.getRequest(`/v1/competitions/${competitionId}`));
 }
 
 FootballData.prototype.getCompetitions = function (season) {
