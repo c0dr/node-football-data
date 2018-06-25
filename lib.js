@@ -17,6 +17,10 @@ FootballData.prototype.getRequest = function (path) {
   };
 }
 
+FootballData.prototype.getCompetition = function (competitionId) {
+  return rp(this.getRequest(`/v1/competitions/${competitionId}`));
+}
+
 FootballData.prototype.getCompetitions = function (season) {
   var config = this.getRequest('/v1/competitions/');
   if (season) {
