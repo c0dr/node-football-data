@@ -1,5 +1,5 @@
 var rp = require('request-promise');
-var API_URL = "http://api.football-data.org";
+var API_URL = "https://api.football-data.org";
 
 function FootballData(apiToken) {
   if(!(this instanceof FootballData))
